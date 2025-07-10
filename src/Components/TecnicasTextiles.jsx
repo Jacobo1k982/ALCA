@@ -7,26 +7,32 @@ const TecnicasTextiles = () => {
     {
       nombre: "Bordados",
       subtitulo: "",
-      descripcion: "Tecnología de tejido avanzado para máxima durabilidad",
+      descripcion: "",
       imagen: "/Imagen/Bordado/p-bordado.webp"
     },
     {
       nombre: "Serigrafía",
       subtitulo: "",
-      descripcion: "Materiales ultraligeros para máximo rendimiento",
+      descripcion: "",
       imagen: "/Imagen/Bordado/serigrafia.jpg"
     },
     {
       nombre: "Sublimación",
       subtitulo: "",
-      descripcion: "Técnica de tejido transpirable para confort superior",
-      imagen: "/Imagen/Bordado/sublimacion.png"
+      descripcion: "",
+      imagen: "/Imagen/Bordado/sublimacion.jpg"
     },
     {
       nombre: "Poliflex",
       subtitulo: "",
-      descripcion: "Técnica de tejido transpirable para confort superior",
+      descripcion: "",
       imagen: "/Imagen/Bordado/poliflex.jpg"
+    },
+    {
+      nombre: "DTF",
+      subtitulo: "",
+      descripcion: "",
+      imagen: "/Imagen/Bordado/dtf.webp"
     }
   ];
 
@@ -52,7 +58,7 @@ const TecnicasTextiles = () => {
               key={index}
               className={`relative w-full transition-all duration-500 ease-in-out overflow-hidden
                 ${hoveredIndex === index ? 'h-[60%]' : 'h-[20%]'}
-                group`}
+                group border-2 border-white rounded-lg shadow-md`} // Bordes añadidos
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
@@ -89,9 +95,9 @@ const TecnicasTextiles = () => {
               <div
                 key={index}
                 className={`relative h-full transition-all duration-500 ease-in-out overflow-hidden
-                  ${hoveredIndex === index ? 'w-[400px]' : 'w-[200px]'}
+                  ${hoveredIndex === index ? 'w-[500px]' : 'w-[280px]'}
                   ${index !== 0 ? '-ml-16 md:-ml-28' : ''}
-                  group`}
+                  group border-2 border-white rounded-lg shadow-lg`} // Bordes añadidos
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
