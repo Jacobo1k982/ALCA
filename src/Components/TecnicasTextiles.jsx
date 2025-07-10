@@ -6,21 +6,27 @@ const TecnicasTextiles = () => {
   const tecnicas = [
     {
       nombre: "Bordados",
-      subtitulo: "one",
+      subtitulo: "",
       descripcion: "Tecnología de tejido avanzado para máxima durabilidad",
-      imagen: "/Imagen/Bordado/bordado.avif"
+      imagen: "/Imagen/Bordado/p-bordado.webp"
     },
     {
       nombre: "Serigrafía",
-      subtitulo: "M",
+      subtitulo: "",
       descripcion: "Materiales ultraligeros para máximo rendimiento",
       imagen: "/Imagen/Bordado/serigrafia.jpg"
     },
     {
-      nombre: "Diseño",
-      subtitulo: "M",
+      nombre: "Sublimación",
+      subtitulo: "",
       descripcion: "Técnica de tejido transpirable para confort superior",
-      imagen: "/imagenes/tecnicas/dianerini.jpg"
+      imagen: "/Imagen/Bordado/sublimacion.png"
+    },
+    {
+      nombre: "Poliflex",
+      subtitulo: "",
+      descripcion: "Técnica de tejido transpirable para confort superior",
+      imagen: "/Imagen/Bordado/poliflex.jpg"
     }
   ];
 
@@ -29,8 +35,8 @@ const TecnicasTextiles = () => {
       <div className="max-w-7xl mx-auto">
         {/* Encabezado */}
         <div className="text-center mb-8 md:mb-16">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-2 md:mb-4">TÉCNICAS TEXTILES</h1>
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-700 mb-4 md:mb-6">Ayudamos a impulsar tu marca</h2>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-green-600 mb-2 md:mb-4">TÉCNICAS DE ESTAMPADO</h1>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-green-700 mb-4 md:mb-6">Ayudamos a impulsar tu marca</h2>
           <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
             Las mejores técnicas textiles para conseguir la mejor calidad de tu marca.
           </p>

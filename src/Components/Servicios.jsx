@@ -29,14 +29,14 @@ const Servicios = () => {
     ];
 
     return (
-        <section className="relative py-16 bg-gray-100 px-4 sm:px-6 lg:px-8">
+        <section className="relative py-16 bg-white px-4 sm:px-6 lg:px-8">
             {/* Imagen de fondo que cubre hasta la mitad de las cards */}
-            <div className="absolute inset-x-0 top-0 h-2/3 bg-[url('/Imagen/Servicios/medio_fondo.webp')] bg-cover bg-center z-0"></div>
+            <div className="absolute inset-x-0 top-0 h-2/3 bg-[url('/Imagen/Servicios/fondo.jpg')] bg-cover bg-center z-0"></div>
 
             {/* Contenido principal */}
             <div className="relative z-10 max-w-7xl mx-auto">
                 {/* Título */}
-                <h2 className="text-3xl sm:text-4xl font-bold text-center text-white mb-12">NUESTROS SERVICIOS</h2>
+                <h2 className="text-3xl sm:text-4xl font-bold text-center text-green-600 mb-12">NUESTROS SERVICIOS</h2>
 
                 {/* Grid de cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -54,8 +54,8 @@ const Servicios = () => {
 
                             {/* Contenido de la card */}
                             <div className="p-6 flex flex-col flex-grow">
-                                <h3 className="text-xl font-semibold text-gray-800 mb-3">{servicio.titulo}</h3>
-                                <p className="text-gray-600 mb-6 flex-grow">{servicio.descripcion}</p>
+                                <h3 className="text-xl font-semibold text-center text-green-600 mb-3">{servicio.titulo}</h3>
+                                <p className="text-gray-800 text-center mb-6 flex-grow">{servicio.descripcion}</p>
 
                                 {/* Botón negro */}
                                 <button className="w-full py-3 px-4 bg-black text-white rounded-md hover:bg-gray-800 transition-colors duration-300 font-medium text-center">
