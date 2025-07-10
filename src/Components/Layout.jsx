@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
         <div className="min-h-screen flex flex-col text-white bg-gray-900 font-sans">
             <Navbar />
             <main className="flex-grow">{children}</main>
-            
+            <Footer />
         </div>
     );
 };

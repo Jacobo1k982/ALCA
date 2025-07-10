@@ -58,7 +58,7 @@ const TecnicasTextiles = () => {
               key={index}
               className={`relative w-full transition-all duration-500 ease-in-out overflow-hidden
                 ${hoveredIndex === index ? 'h-[60%]' : 'h-[20%]'}
-                group border-2 border-white rounded-lg shadow-md`} // Bordes añadidos
+                group border-2 border-green-500 rounded-lg shadow-md`} // Bordes añadidos
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >

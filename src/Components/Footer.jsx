@@ -8,10 +8,9 @@ const Footer = () => {
             <div className="flex flex-col md:flex-row justify-between items-center px-4 md:px-6 py-6 gap-6">
                 {/* Logo */}
                 <div className="flex items-center gap-3">
-                    <img src="/Logo/LogoBlanco.png" alt="Logo" className="w-11 h-8" />
                     <div>
-                        <h1 className="font-bold text-xl">BPOMICONTA</h1>
-                        <p className="text-sm text-gray-300 -mt-1">Finanzas e Inversión</p>
+                        <h1 className="font-bold text-4xl">BORDADOS ALCA</h1>
+                        <p className="text-sm text-gray-300 -mt-1"></p>
                     </div>
                 </div>
 
@@ -22,7 +21,7 @@ const Footer = () => {
                     <FaXTwitter className="hover:text-[#00e0c7]" />
                     <FaYoutube className="hover:text-[#00e0c7]" />
                     <a
-                        href="https://wa.me/50687905876"
+                        href="https://wa.me/50670799463"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hover:text-[#00e0c7"
@@ -37,7 +36,7 @@ const Footer = () => {
 
             {/* Info legal */}
             <div className="flex flex-col md:flex-row justify-between items-center px-4 md:px-6 py-4 text-xs md:text-sm text-gray-400 gap-2">
-                <span>© 2025 BPOMICONTA. Todos los derechos reservados.</span>
+                <span>© 2025 bordados-alca. Todos los derechos reservados.</span>
                 <a href="#" className="hover:text-[#00e0c7]">Política de privacidad y cookies</a>
             </div>
 

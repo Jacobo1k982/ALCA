@@ -16,16 +16,16 @@ const Hero = () => {
             </div>
 
             {/* Contenido del Hero */}
-            <div className="relative z-10 text-center px-4 w-full">
+            <div className="relative z-10 text-center px-6 w-full">
                 {/* Texto superior */}
                 <p className="text-xs md:text-sm uppercase tracking-[0.5em] mb-8 text-gray-200">
                     FABRICA TEXTIL DEPORTIVA, ESTUDIANTIL Y EMPRESARIAL
                 </p>
 
                 {/* Logo principal */}
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 tracking-tight text-white drop-shadow-[0_2px_2px_rgba(255,255,255,0.4)]">
-                    <span className="block font-bonheur">Bordados</span>
-                    <span className="block font-bonheur">Alca</span>
+                <h1 className="text-5xl md:text-8xl lg:text-[10rem] font-bold mb-4 tracking-tight text-white drop-shadow-[0_2px_2px_rgba(255,255,255,0.4)]">
+                    <span className="block text-8xl font-bonheur">Bordados</span>
+                    <span className="block text-8xl font-bonheur">Alca</span>
                 </h1>
                 {/* Texto inferior */}
                 <p className="text-sm md:text-base uppercase tracking-[0.3em] mt-8 text-gray-200">
