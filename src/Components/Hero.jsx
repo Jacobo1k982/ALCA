@@ -19,7 +19,7 @@ const Hero = () => {
             <div className="relative z-10 text-center px-4 w-full">
                 {/* Texto superior */}
                 <p className="text-xs md:text-sm uppercase tracking-[0.5em] mb-8 text-gray-200">
-                    FABRICA TEXTIL DEPORTIVA
+                    FABRICA TEXTIL DEPORTIVA, ESTUDIANTIL Y EMPRESARIAL
                 </p>
 
                 {/* Logo principal */}
