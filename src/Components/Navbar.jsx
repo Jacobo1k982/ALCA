@@ -1,11 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 50);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
         <header className="w-full relative">
@@ -54,8 +64,11 @@ const Navbar = () => {
             </div>
 
             {/* Navbar principal */}
-            <nav className="bg-gray-900 flex justify-between items-center px-4 py-3 md:px-8 lg:px-12">
-                {/* Logo - ALCA-TEXTIL */}
+            <nav className={`z-50 w-full transition-all duration-300 ${isScrolled
+                    ? "fixed top-0 left-0 bg-gray-900/90 shadow-lg backdrop-blur-md"
+                    : "bg-gray-900"
+                } flex justify-between items-center px-4 py-3 md:px-8 lg:px-12`}>
+                {/* Logo */}
                 <div className="flex items-center">
                     <a href="/" onClick={() => window.location.reload()}>
                         <img
@@ -69,23 +82,20 @@ const Navbar = () => {
                 {/* Menú de navegación (desktop) */}
                 <div className="hidden md:flex space-x-6 lg:space-x-8">
                     <a href="#" className="text-gray-200 text-xs uppercase font-medium hover:underline">
-                        ROPA DEPORTIVA
+                        Uniformes
                     </a>
                     <a href="#" className="text-gray-200 text-xs uppercase font-medium hover:underline">
-                        ROPA ESTUDIANTIL
+                        Técnicas
                     </a>
                     <a href="#" className="text-gray-200 text-xs uppercase font-medium hover:underline">
-                        FABRICACION EMPRESARIAL
-                    </a>
-                    <a href="#" className="text-gray-200 text-xs uppercase font-medium hover:underline">
-                        CATALOGOS
+                        Catálogos
                     </a>
                     <a href="contact" className="text-gray-200 text-xs uppercase font-medium hover:underline">
-                        CONTACTO
+                        Contacto
                     </a>
                 </div>
 
-                {/* Menú móvil (hamburguesa) */}
+                {/* Menú móvil */}
                 <button
                     className="md:hidden text-white focus:outline-none"
                     onClick={toggleMenu}
