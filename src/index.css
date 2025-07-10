@@ -32,3 +32,13 @@
     animation: marquee 25s linear infinite;
 }
 
+.video-loading-overlay {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+video.loaded ~ .video-loading-overlay {
+    opacity: 0;
+    pointer-events: none;
+}
+
