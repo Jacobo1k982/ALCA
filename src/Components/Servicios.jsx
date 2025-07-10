@@ -31,7 +31,7 @@ const Servicios = () => {
     return (
         <section className="relative py-16 bg-white px-4 sm:px-6 lg:px-8">
             {/* Imagen de fondo que cubre hasta la mitad de las cards */}
-            <div className="absolute inset-x-0 top-0 h-2/3 bg-[url('/Imagen/Servicios/fondo.jpg')] bg-cover bg-center z-0"></div>
+            <div className="absolute inset-x-0 top-0 h-2/3 bg-[url('/Imagen/Servicios/medio_fondo.webp')] bg-cover bg-center z-0"></div>
 
             {/* Contenido principal */}
             <div className="relative z-10 max-w-7xl mx-auto">
