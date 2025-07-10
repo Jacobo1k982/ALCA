@@ -36,7 +36,7 @@ const QuienesSomos = () => {
                                 playsInline
                                 muted
                                 preload="metadata"
-                                poster="/Imagen/QuienesSomos/video-poster.jpg"
+                                poster="/logoverde.jpg"
                                 onLoadedData={() => setIsVideoLoaded(true)}
                                 onError={() => setHasError(true)}
                             >
@@ -44,10 +44,10 @@ const QuienesSomos = () => {
                                     src="/Imagen/QuienesSomos/Fabrica-ALCA.mp4"
                                     type="video/mp4"
                                 />
-                                <source
-                                    src="/Imagen/QuienesSomos/Fabrica-ALCA.webm"
-                                    type="video/webm"
-                                />
+                                {/*<source
+                                    src="/logoverde.jpg"
+                                    type="video/jpg"
+                                />*/}
                                 {/* Mensaje de fallback para navegadores que no soportan video */}
                                 <div className="absolute inset-0 flex items-center justify-center text-white bg-black bg-opacity-70">
                                     Tu navegador no soporta videos HTML5.
