@@ -32,15 +32,15 @@ const TejidosTecnicos = () => {
             <div className="max-w-7xl mx-auto relative">
                 {/* Encabezado */}
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
+                    <h2 className="text-4xl md:text-5xl font-bold text-green-600 mb-4 tracking-tight">
                         <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-emerald-700">
                             TEJIDOS TÉCNICOS
                         </span>
                     </h2>
+                    <div className="w-24 h-1 bg-gradient-to-r from-green-400 to-emerald-500 mx-auto mb-6"></div>
                     <p className="text-xl md:text-2xl text-gray-600 font-medium max-w-3xl mx-auto mb-6">
                         Los mejores tejidos técnicos para tu marca de ropa
                     </p>
-                    <div className="w-24 h-1 bg-gradient-to-r from-green-400 to-emerald-500 mx-auto"></div>
                 </div>
 
                 {/* Descripción */}

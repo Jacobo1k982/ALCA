@@ -41,7 +41,12 @@ const TecnicasTextiles = () => {
       <div className="max-w-7xl mx-auto">
         {/* Encabezado */}
         <div className="text-center mb-8 md:mb-16">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-green-600 mb-2 md:mb-4">TÉCNICAS DE ESTAMPADO</h1>
+          <h2 className="text-4xl md:text-5xl font-bold text-green-600 mb-4 tracking-tight">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-emerald-700">
+              TÉCNICAS DE ESTAMPADO
+            </span>
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-green-400 to-emerald-500 mx-auto mb-6"></div>
           <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-green-700 mb-4 md:mb-6">Ayudamos a impulsar tu marca</h2>
           <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
             Las mejores técnicas textiles para conseguir la mejor calidad de tu marca.
