@@ -4,9 +4,15 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [openSubmenu, setOpenSubmenu] = useState(null);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
+        setOpenSubmenu(null); // Cerrar submenús al abrir/cerrar el menú móvil
+    };
+
+    const toggleSubmenu = (menuName) => {
+        setOpenSubmenu(openSubmenu === menuName ? null : menuName);
     };
 
     useEffect(() => {
@@ -17,6 +23,37 @@ const Navbar = () => {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    // Datos del menú con submenús
+    const menuItems = [
+        {
+            name: "Uniformes",
+            submenu: [
+                { name: "Deportivo", url: "#deportiva" },
+                { name: "Estudiantil", url: "#estudiantil" },
+                { name: "Industrial", url: "#empresarial" },
+                { name: "Promocionales", url: "#promocionales" }
+            ]
+        },
+        {
+            name: "Técnicas",
+            submenu: [
+                { name: "Bordado", url: "#bordado" },
+                { name: "Serigrafía", url: "#serigrafia" },
+                { name: "Sublimación", url: "#sublimacion" },
+                { name: "Poliflex", url: "#poliflex" },
+                { name: "DTF", url: "#dtf" }
+            ]
+        },
+        {
+            name: "Catálogos",
+            url: "#catalogos"
+        },
+        {
+            name: "Contacto",
+            url: "/contact"
+        }
+    ];
 
     return (
         <header className="w-full relative">
@@ -69,6 +106,7 @@ const Navbar = () => {
                 ? "fixed top-0 left-0 bg-gray-900/90 shadow-lg backdrop-blur-md"
                 : "bg-gray-900"
                 } flex justify-between items-center px-4 py-3 md:px-8 lg:px-12`}>
+
                 {/* Logo */}
                 <div className="flex items-center">
                     <a href="/" onClick={() => window.location.reload()}>
@@ -80,26 +118,73 @@ const Navbar = () => {
                     </a>
                 </div>
 
-                {/* Menú de navegación (desktop) */}
-                <div className="hidden md:flex space-x-6 lg:space-x-8">
-                    <a href="#" className="text-gray-200 text-xs uppercase font-medium hover:underline">
-                        Uniformes
-                    </a>
-                    <a href="#" className="text-gray-200 text-xs uppercase font-medium hover:underline">
-                        Técnicas
-                    </a>
-                    <a href="#" className="text-gray-200 text-xs uppercase font-medium hover:underline">
-                        Catálogos
-                    </a>
-                    <Link to="/contact" className="text-gray-200 text-xs uppercase font-medium hover:underline">
-                        Contacto
-                    </Link>
+                {/* Menú de navegación (desktop) con submenús */}
+                <div className="hidden md:flex space-x-6 lg:space-x-8 relative">
+                    {menuItems.map((item, index) => (
+                        <div key={index} className="relative group">
+                            {item.submenu ? (
+                                <>
+                                    <button
+                                        onClick={() => toggleSubmenu(item.name)}
+                                        className="text-gray-200 text-xs uppercase font-medium hover:underline flex items-center focus:outline-none"
+                                        aria-expanded={openSubmenu === item.name}
+                                        aria-haspopup="true"
+                                    >
+                                        {item.name}
+                                        <svg
+                                            className={`w-4 h-4 ml-1 transition-transform ${openSubmenu === item.name ? 'transform rotate-180' : ''}`}
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </button>
+
+                                    {openSubmenu === item.name && (
+                                        <div
+                                            className="absolute left-0 mt-2 w-48 bg-gray-800 rounded-md shadow-lg z-50 py-1"
+                                            onMouseLeave={() => setOpenSubmenu(null)}
+                                        >
+                                            {item.submenu.map((subItem, subIndex) => (
+                                                <a
+                                                    key={subIndex}
+                                                    href={subItem.url}
+                                                    className="block px-4 py-2 text-xs text-gray-200 hover:bg-gray-700 hover:text-white"
+                                                >
+                                                    {subItem.name}
+                                                </a>
+                                            ))}
+                                        </div>
+                                    )}
+                                </>
+                            ) : (
+                                item.url.startsWith('/') ? (
+                                    <Link
+                                        to={item.url}
+                                        className="text-gray-200 text-xs uppercase font-medium hover:underline"
+                                    >
+                                        {item.name}
+                                    </Link>
+                                ) : (
+                                    <a
+                                        href={item.url}
+                                        className="text-gray-200 text-xs uppercase font-medium hover:underline"
+                                    >
+                                        {item.name}
+                                    </a>
+                                )
+                            )}
+                        </div>
+                    ))}
                 </div>
 
                 {/* Menú móvil */}
                 <button
                     className="md:hidden text-white focus:outline-none"
                     onClick={toggleMenu}
+                    aria-label="Toggle menu"
+                    aria-expanded={isMenuOpen}
                 >
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -107,7 +192,7 @@ const Navbar = () => {
                 </button>
             </nav>
 
-            {/* Menú móvil desplegable */}
+            {/* Menú móvil desplegable con submenús */}
             {isMenuOpen && (
                 <>
                     {/* Fondo translúcido */}
@@ -131,6 +216,7 @@ const Navbar = () => {
                                 <button
                                     className="text-white focus:outline-none"
                                     onClick={toggleMenu}
+                                    aria-label="Close menu"
                                 >
                                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -138,43 +224,64 @@ const Navbar = () => {
                                 </button>
                             </div>
 
-                            {/* Opciones del menú */}
-                            <nav className="flex-1 flex flex-col space-y-4 mt-6">
-                                <a
-                                    href="#"
-                                    className="text-gray-200 text-sm uppercase font-medium hover:text-white transition-colors"
-                                    onClick={toggleMenu}
-                                >
-                                    ROPA DEPORTIVA
-                                </a>
-                                <a
-                                    href="#"
-                                    className="text-gray-200 text-sm uppercase font-medium hover:text-white transition-colors"
-                                    onClick={toggleMenu}
-                                >
-                                    ROPA ESTUDIANTIL
-                                </a>
-                                <a
-                                    href="#"
-                                    className="text-gray-200 text-sm uppercase font-medium hover:text-white transition-colors"
-                                    onClick={toggleMenu}
-                                >
-                                    FABRICACION EMPRESARIAL
-                                </a>
-                                <a
-                                    href="#"
-                                    className="text-gray-200 text-sm uppercase font-medium hover:text-white transition-colors"
-                                    onClick={toggleMenu}
-                                >
-                                    CATALOGOS
-                                </a>
-                                <Link
-                                    to="/contact"
-                                    className="text-gray-200 text-sm uppercase font-medium hover:text-white transition-colors"
-                                    onClick={toggleMenu}
-                                >
-                                    CONTACTO
-                                </Link>
+                            {/* Opciones del menú con submenús */}
+                            <nav className="flex-1 flex flex-col space-y-2 mt-6 overflow-y-auto">
+                                {menuItems.map((item, index) => (
+                                    <div key={index} className="flex flex-col">
+                                        {item.submenu ? (
+                                            <>
+                                                <button
+                                                    onClick={() => toggleSubmenu(item.name)}
+                                                    className="flex justify-between items-center text-gray-200 text-sm uppercase font-medium hover:text-white transition-colors py-2 focus:outline-none"
+                                                    aria-expanded={openSubmenu === item.name}
+                                                >
+                                                    <span>{item.name}</span>
+                                                    <svg
+                                                        className={`w-4 h-4 transition-transform ${openSubmenu === item.name ? 'transform rotate-180' : ''}`}
+                                                        fill="none"
+                                                        stroke="currentColor"
+                                                        viewBox="0 0 24 24"
+                                                    >
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                                    </svg>
+                                                </button>
+
+                                                {openSubmenu === item.name && (
+                                                    <div className="ml-4 flex flex-col space-y-2 border-l border-gray-700 pl-3 py-1">
+                                                        {item.submenu.map((subItem, subIndex) => (
+                                                            <a
+                                                                key={subIndex}
+                                                                href={subItem.url}
+                                                                className="text-gray-300 text-sm uppercase font-medium hover:text-white transition-colors py-1 pl-2"
+                                                                onClick={toggleMenu}
+                                                            >
+                                                                {subItem.name}
+                                                            </a>
+                                                        ))}
+                                                    </div>
+                                                )}
+                                            </>
+                                        ) : (
+                                            item.url.startsWith('/') ? (
+                                                <Link
+                                                    to={item.url}
+                                                    className="text-gray-200 text-sm uppercase font-medium hover:text-white transition-colors py-2"
+                                                    onClick={toggleMenu}
+                                                >
+                                                    {item.name}
+                                                </Link>
+                                            ) : (
+                                                <a
+                                                    href={item.url}
+                                                    className="text-gray-200 text-sm uppercase font-medium hover:text-white transition-colors py-2"
+                                                    onClick={toggleMenu}
+                                                >
+                                                    {item.name}
+                                                </a>
+                                            )
+                                        )}
+                                    </div>
+                                ))}
                             </nav>
 
                             {/* Redes sociales en el menú */}
