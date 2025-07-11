@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -65,8 +66,8 @@ const Navbar = () => {
 
             {/* Navbar principal */}
             <nav className={`z-50 w-full transition-all duration-300 ${isScrolled
-                    ? "fixed top-0 left-0 bg-gray-900/90 shadow-lg backdrop-blur-md"
-                    : "bg-gray-900"
+                ? "fixed top-0 left-0 bg-gray-900/90 shadow-lg backdrop-blur-md"
+                : "bg-gray-900"
                 } flex justify-between items-center px-4 py-3 md:px-8 lg:px-12`}>
                 {/* Logo */}
                 <div className="flex items-center">
@@ -90,9 +91,9 @@ const Navbar = () => {
                     <a href="#" className="text-gray-200 text-xs uppercase font-medium hover:underline">
                         Catálogos
                     </a>
-                    <a href="contact" className="text-gray-200 text-xs uppercase font-medium hover:underline">
+                    <Link to="/contact" className="text-gray-200 text-xs uppercase font-medium hover:underline">
                         Contacto
-                    </a>
+                    </Link>
                 </div>
 
                 {/* Menú móvil */}
@@ -167,13 +168,13 @@ const Navbar = () => {
                                 >
                                     CATALOGOS
                                 </a>
-                                <a
-                                    href="contact"
+                                <Link
+                                    to="/contact"
                                     className="text-gray-200 text-sm uppercase font-medium hover:text-white transition-colors"
                                     onClick={toggleMenu}
                                 >
                                     CONTACTO
-                                </a>
+                                </Link>
                             </nav>
 
                             {/* Redes sociales en el menú */}
